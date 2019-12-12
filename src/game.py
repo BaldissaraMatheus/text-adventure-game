@@ -11,6 +11,7 @@ dialog = new Dialog('oiiii')
 cafeBostaAction = StayDialogQueueProgressActionBuilder.build()
 cafeBostaOption = new DialogOption('meu cape ficou uma bosta', cafeBostaAction)
 dialog.addOption(cafeBostaOption)
+dialog.print()
 
 alguemMeMataAction = InterruptDialogQueueProgressActionBuilder.build()
 alguemMeMataOption = new DialogOption('alguem me mata', alguemMeMataAction)

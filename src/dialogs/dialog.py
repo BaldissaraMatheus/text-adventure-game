@@ -7,17 +7,20 @@ from PyInquirer import prompt, style_from_dict
 
 class Dialog:
 
-    possible_options = []
+    options = []
 
     def __init__(self, message):
         self.message = message
         self.options = []
 
     def add_option(self, dialog_option: DialogOption):
-        possible_options.append(dialog_option)
+        options.append(dialog_option)
+
+    def print(self):
+        print(self.options)
 
     def execute(self):
-        for opt in self.possible_options:
+        for opt in self.options:
             value_option = {'name': opt.text}
             self.options.append(value_option)
 
@@ -31,6 +34,6 @@ class Dialog:
         ]
 
         answers = prompt(questions, style=custom_style_1)
-        for opt in self.possible_options:
+        for opt in self.options:
             if self.message == opt.text:
                 opt.execute()
