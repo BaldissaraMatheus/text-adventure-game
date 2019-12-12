@@ -5,14 +5,20 @@ from examples import custom_style_1
 
 class Dialog:
 
+    possible_options = []
+
     def __init__(self, message):
         self.message = message
         self.options = []
 
-    def add_option(self, dialog_option={'name': 'Continue'}):
-        self.options.append(dialog_option)
+    def add_option(self, dialog_option: DialogOption):
+        possible_options.append(dialog_option)
 
     def execute(self):
+        for opt in self.possible_options:
+            value_option = {'name': opt.text}
+            self.options.append(value_option)
+
         questions = [
             {
                 'type': 'list',
@@ -23,7 +29,9 @@ class Dialog:
         ]
 
         answers = prompt(questions, style=custom_style_1)
-        return answers
+        for opt in self.possible_options:
+            if self.message == opt.text:
+                opt.execute()
 
 
 # dialog_options = {'name': 'foi pra direita'}
