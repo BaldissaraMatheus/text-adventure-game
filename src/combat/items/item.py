@@ -15,8 +15,8 @@ class Item:
         self.quantity = self.quantity - quantity
 
     def use(self, target: Character):
-        self.effect.execute(target)
         self.quantity -= 1
+        return self.effect.execute(target)
     
     def readDescription(self):
         print(self.description)
