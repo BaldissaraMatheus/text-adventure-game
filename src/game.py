@@ -7,67 +7,49 @@ from dialogs.dialog_queue import DialogQueue
 from dialogs.start_dialog_queue_action_decorator import StartDialogQueueActionDecorator
 
 # Fila teste de dialogo
-testeQueue = DialogQueue()
+pastelariaDosBacanasQueue = DialogQueue()
+
+continuar = ContinueDialogQueueProgressActionBuilder().build()
+sair = InterruptDialogQueueProgressActionBuilder().build()
+ficar = StayDialogQueueProgressActionBuilder().build()
 
 # Dialogo 1
-dialog1 = Dialog('dialogo 1')
-
-builder = StayDialogQueueProgressActionBuilder()
-ficarAction = builder.build()
-ficarOption = DialogOption('ficar', ficarAction)
-dialog1.add_option(ficarOption)
-
-
-# Dialogo secreto B)
-dialogSecreto = Dialog('dialogo secreto')
-
-builder = StayDialogQueueProgressActionBuilder()
-ficarAction = builder.build()
-ficarOption = DialogOption('ficar', ficarAction)
-dialogSecreto.add_option(ficarOption)
-
-builder = InterruptDialogQueueProgressActionBuilder()
-sairAction = builder.build()
-sairOption = DialogOption('sair', sairAction)
-dialogSecreto.add_option(sairOption)
-
-novaQueue = DialogQueue()
-novaQueue.add_dialog(dialogSecreto)
-
-
-# Implementa decorator
-builder = ContinueDialogQueueProgressActionBuilder()
-continuarAction = builder.build()
-decorator = StartDialogQueueActionDecorator(continuarAction, novaQueue)
-opcaoSecreta = DialogOption('opcao secreta', decorator)
-dialog1.add_option(opcaoSecreta)
-
-builder = InterruptDialogQueueProgressActionBuilder()
-sairAction = builder.build()
-sairOption = DialogOption('sair', sairAction)
-dialog1.add_option(sairOption)
+primeiroDialogo = Dialog('BOM DIA! Bem vindo à Pastelaria dos Bacanas!')
+cumprimentar = DialogOption('Bom dia', continuar)
+irEmbora = DialogOption('Tou indo embora!', sair)
+primeiroDialogo.add_option(cumprimentar)
+primeiroDialogo.add_option(irEmbora)
 
 
 # Dialogo 2
-dialog2 = Dialog('dialogo 2')
+segundoDialogo = Dialog('O que vai querer hoje?')
+naoDecidiu = DialogOption('Hmm... ainda não sei...', ficar)
+umPastel = DialogOption('Vou querer um pastel!', continuar)
 
-builder = StayDialogQueueProgressActionBuilder()
-ficarAction = builder.build()
-ficarOption = DialogOption('ficar', ficarAction)
-dialog2.add_option(ficarOption)
 
-builder = ContinueDialogQueueProgressActionBuilder()
-continuarAction = builder.build()
-continuarOption = DialogOption('continuar', continuarAction)
-dialog2.add_option(continuarOption)
+# Dialogo secreto B)
+dialogoOpcional = Dialog('Deculpe, mas só vendemos paçoca a partir de 15h!')
+ok = DialogOption('Okay...', sair)
+dialogoOpcional.add_option(ok)
+novaQueue = DialogQueue()
+novaQueue.add_dialog(dialogoOpcional)
 
-builder = InterruptDialogQueueProgressActionBuilder()
-sairAction = builder.build()
-sairOption = DialogOption('sair', sairAction)
-dialog2.add_option(sairOption)
+optional = StartDialogQueueActionDecorator(ficar, novaQueue)
+aMercadoria = DialogOption('Você teria... a mercadoria?', optional)
+
+segundoDialogo.add_option(naoDecidiu)
+segundoDialogo.add_option(umPastel)
+segundoDialogo.add_option(aMercadoria)
+
+
+# Dialogo 3
+terceiroDialogo = Dialog('Aqui está!')
+hmmm = DialogOption('Hmm não tá muito bom', sair)
+terceiroDialogo.add_option(hmmm)
 
 # Inclui dialogos na fila e executa
 
-testeQueue.add_dialog(dialog1)
-testeQueue.add_dialog(dialog2)
-testeQueue.execute()
+pastelariaDosBacanasQueue.add_dialog(primeiroDialogo)
+pastelariaDosBacanasQueue.add_dialog(segundoDialogo)
+pastelariaDosBacanasQueue.add_dialog(terceiroDialogo)
+pastelariaDosBacanasQueue.execute()
