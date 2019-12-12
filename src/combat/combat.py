@@ -1,6 +1,7 @@
 from typing import List
+from .characters.character_npc import CharacterNpc
 
-class combat:
+class Combat:
     def __init__(self, enemies: List[CharacterNpc], player: CharacterPlayer):
         self.enemies = enemies
         self.player = player
@@ -10,8 +11,8 @@ class combat:
         size = len(characters)
         top = 0
 
-        while (len(self.enemies) != 0 && self.player.health != 0):
-           if (top == size):
+        while (len(self.enemies) != 0 & self.player.health != 0):
+            if (top == size):
                top = 0 
 
             if (characters[top].isFrozen == True):
@@ -43,7 +44,7 @@ class combat:
                     else:
                         characters[top] = item.execute(characters[top])
             for char in characters:
-                print(char.nome + ' - ' char.health + 'HP')
+                print(char.name + ' - ' + char.health + 'HP')
             for char in characters:
                 if (char.health <= 0):
                     if (char == player):

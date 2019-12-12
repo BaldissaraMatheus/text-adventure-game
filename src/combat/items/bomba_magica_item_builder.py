@@ -1,7 +1,8 @@
 from interface import implements, Interface
+from .item_builder import ItemBuilder
 
-class EspadaItemBuilder(implements(ItemBuilder)):
+class BombaMagicaItemBuilder(implements(ItemBuilder)):
     def __init__(self):
         pass
     def build(self):
-        return Item('Bomba mágica', 'Uma bomba congelante.' 999, 'Ofensivo', EffectFreeze(self))
+        return Item('Bomba mágica', 'Uma bomba congelante.', 4, 'Ofensivo', EffectFreeze(self))

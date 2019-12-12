@@ -3,10 +3,10 @@ from .character import Character
 class CharacterNPC(Character):
     def __init__(self, name, health, items, isFrozen=False):
         super()
-        self.name = super().name
-        self.health = super().health
-        self.items = super().items
-        self.isFrozen = super().isFrozen
+        self.name = name
+        self.health = health
+        self.items = items
+        self.isFrozen = isFrozen
     
     def takeDecision(self):
         super()

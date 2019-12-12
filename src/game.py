@@ -5,6 +5,7 @@ from dialogs.dialog import Dialog
 from dialogs.dialog_option import DialogOption
 from dialogs.dialog_queue import DialogQueue
 from dialogs.start_dialog_queue_action_decorator import StartDialogQueueActionDecorator
+# from combat.characters.random_character_npc_factory import RandomCharacterNpcFactory
 
 # Fila teste de dialogo
 pastelariaDosBacanasQueue = DialogQueue()
@@ -53,3 +54,6 @@ pastelariaDosBacanasQueue.add_dialog(primeiroDialogo)
 pastelariaDosBacanasQueue.add_dialog(segundoDialogo)
 pastelariaDosBacanasQueue.add_dialog(terceiroDialogo)
 pastelariaDosBacanasQueue.execute()
+
+# a = RandomCharacterNpcFactory().build()
+# print(a)

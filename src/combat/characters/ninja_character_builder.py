@@ -1,5 +1,6 @@
 from ..items.item import Item
 from ..items.espada_item_builder import EspadaItemBuilder
+from .character_npc import CharacterNpc
 from typing import List
 
 class NinjaCharacterBuilder():
@@ -7,4 +8,4 @@ class NinjaCharacterBuilder():
         pass
     def build(self):
         espada = EspadaItemBuilder().build()
-        return NpcCharacter('Ninja', 15, [espada])
+        return CharacterNpc('Ninja', 15, [espada])

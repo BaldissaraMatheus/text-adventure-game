@@ -3,6 +3,7 @@ from .effect import Effect
 
 class EffectDecreaseHealth(implements(Effect)):
     def __init__(self, amount: int):
+        super()
         self.amount = amount
     
     def execute(self, target):

@@ -14,7 +14,7 @@ class Item:
     def decrease(self, quantity: int):
         self.quantity = self.quantity - quantity
 
-    def use(self, target: Character):
+    def use(self, target):
         self.quantity -= 1
         return self.effect.execute(target)
     
