@@ -7,9 +7,9 @@ class Dialog:
 
     def __init__(self, message):
         self.message = message
-        self.options = [{'name': 'Continue'}]
+        self.options = []
 
-    def add_option(self, dialog_option):
+    def add_option(self, dialog_option={'name': 'Continue'}):
         self.options.append(dialog_option)
 
     def execute(self):
@@ -26,29 +26,11 @@ class Dialog:
         return answers
 
 
-dialog_options = {'name': 'foi pra direita'}
-
-primeira_fase = Dialog(message='Para onde eu vou?')
-primeira_fase.add_option(dialog_options)
-primeira_fase.execute()
-
-
-# message = 'Para onde eu vou?'
-
-# dialog_options = [
-#     {'name': 'foi pra direita'},
-#     {'name': 'foi pra esquerda'},
-#     {'name': 'foi pra cima'},
-# ]
-
-# questions = [
-#     {
-#         'type': 'list',
-#         'message': message,
-#         'name': 'answers',
-#         'choices': dialog_options,
-#     },
-# ]
-
-# print('Agora vamos pro seguinte: \n')
-# answers = prompt(questions, style=custom_style_1)
+# dialog_options = {'name': 'foi pra direita'}
+# dialog_options2 = {'name': 'foi pra esquerda'}
+# primeira_fase = Dialog(message='Para onde eu vou?')
+# primeira_fase.add_option()
+# primeira_fase.add_option(dialog_options)
+# primeira_fase.add_option(dialog_options2)
+# resposta = primeira_fase.execute()
+# print(resposta)
