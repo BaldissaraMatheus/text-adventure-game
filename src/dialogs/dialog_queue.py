@@ -13,8 +13,6 @@ class DialogQueue:
     def execute(self):
         while (len(self.queue) != 0):
             command = self.queue[0].execute()
-            # print(command)
-            # print(self.commands)
             if (command == self.commands.INTERRUPT):
                 self.queue = []
             elif (command == self.commands.CONTINUE):

@@ -5,9 +5,10 @@ from .dialog_queue import DialogQueue
 
 class StartDialogQueueActionDecorator(ActionDecorator):
     def __init__(self, action: Action, queue: DialogQueue):
-        super().__init__(action)
-        self.action = super().action
+        super()
+        self.action = action
         self.queue = queue
     
     def execute(self):
-        return super().execute()
+        self.queue.execute()
+        return self.action.execute()

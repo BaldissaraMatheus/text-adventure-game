@@ -6,4 +6,4 @@ class ActionDecorator(implements(Action)):
         self.action = action
     
     def execute(self):
-        return self.action.execute()
+        pass
