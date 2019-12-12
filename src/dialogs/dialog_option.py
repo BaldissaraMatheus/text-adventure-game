@@ -2,7 +2,7 @@ from .action import Action
 
 
 class DialogOption:
-    def __init__(self, text: string, action: Action):
+    def __init__(self, text, action: Action):
         self.text = text
         self.action = action
 

@@ -1,5 +1,5 @@
 from interface import implements, Interface
 
-class Action:
+class Action(Interface):
     def execute(self):
         pass

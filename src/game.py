@@ -1,20 +1,45 @@
-from .stay_dialog_queue_progress_action_builder import StayDialogQueueProgressActionBuilder
-from .interrupt_dialog_queue_progress_action_builder import InterruptDialogQueueProgressActionBuilder
-from .dialog import Dialog
-from .dialog_option import DialogOption
-from .dialog_queue import DialogQueue
+from dialogs.stay_dialog_queue_progress_action_builder import StayDialogQueueProgressActionBuilder
+from dialogs.interrupt_dialog_queue_progress_action_builder import InterruptDialogQueueProgressActionBuilder
+from dialogs.continue_dialog_queue_progress_action_builder import ContinueDialogQueueProgressActionBuilder
+from dialogs.dialog import Dialog
+from dialogs.dialog_option import DialogOption
+from dialogs.dialog_queue import DialogQueue
 
-# Boas vindas
-boasVindasQueue = new DialogQueue()
-dialog = new Dialog('oiiii')
+# Fila teste de dialogo
+testeQueue = DialogQueue()
+dialog1 = Dialog('dialogo 1')
+dialog2 = Dialog('dialogo 2')
 
-cafeBostaAction = StayDialogQueueProgressActionBuilder.build()
-cafeBostaOption = new DialogOption('meu cape ficou uma bosta', cafeBostaAction)
-dialog.addOption(cafeBostaOption)
-dialog.print()
+builder = StayDialogQueueProgressActionBuilder()
+ficarAction = builder.build()
+ficarOption = DialogOption('ficar', ficarAction)
+dialog1.add_option(ficarOption)
 
-alguemMeMataAction = InterruptDialogQueueProgressActionBuilder.build()
-alguemMeMataOption = new DialogOption('alguem me mata', alguemMeMataAction)
-dialog.addOption(alguemMeMataAction)
+builder = ContinueDialogQueueProgressActionBuilder()
+continuarAction = builder.build()
+continuarOption = DialogOption('continuar', continuarAction)
+dialog1.add_option(continuarOption)
 
-dialogQueue.addDialog(dialog)
+builder = InterruptDialogQueueProgressActionBuilder()
+sairAction = builder.build()
+sairOption = DialogOption('sair', sairAction)
+dialog1.add_option(sairOption)
+
+builder = StayDialogQueueProgressActionBuilder()
+ficarAction = builder.build()
+ficarOption = DialogOption('ficar', ficarAction)
+dialog2.add_option(ficarOption)
+
+builder = ContinueDialogQueueProgressActionBuilder()
+continuarAction = builder.build()
+continuarOption = DialogOption('continuar', continuarAction)
+dialog2.add_option(continuarOption)
+
+builder = InterruptDialogQueueProgressActionBuilder()
+sairAction = builder.build()
+sairOption = DialogOption('sair', sairAction)
+dialog2.add_option(sairOption)
+
+testeQueue.add_dialog(dialog1)
+testeQueue.add_dialog(dialog2)
+testeQueue.execute()

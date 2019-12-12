@@ -1,9 +1,9 @@
-from .dialog_queue_progress_action_builder import DialogQueueProgressActionBuilder
+from dialogs.dialog_queue_progress_action_builder import DialogQueueProgressActionBuilder
+from dialogs.dialog_queue_progress_commands import DialogQueueProgressCommands
+from dialogs.base_action import BaseAction
 
 class ContinueDialogQueueProgressActionBuilder(DialogQueueProgressActionBuilder):
-    def __init__(self, commands):
-        super().__init__(commands)
-        self.commands = super().commands
-    
+    def __init__(self):
+        self.commands = DialogQueueProgressCommands()
     def build(self):
-        return super().build()
+        return BaseAction(self.commands.CONTINUE)

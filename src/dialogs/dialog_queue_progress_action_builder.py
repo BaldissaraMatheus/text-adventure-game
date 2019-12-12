@@ -1,4 +1,4 @@
-from .dialog_queue_progress_commands import DialogQueueProgressCommands
+from dialogs.dialog_queue_progress_commands import DialogQueueProgressCommands
 
 class DialogQueueProgressActionBuilder():
     def __init__(self):
