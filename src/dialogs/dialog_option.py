@@ -1,4 +1,4 @@
-import action
+from .action import Action
 
 class DialogOption:
     def __init__(self, text, action: Action):
