@@ -1,5 +1,5 @@
 from __future__ import print_function, unicode_literals
-from PyInquirer import prompt, style_from_dict, Token, Separator
+from PyInquirer import prompt, style_from_dict
 from examples import custom_style_1
 
 
