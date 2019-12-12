@@ -1,4 +1,4 @@
-from dialogs.dialog import Dialog
+from .dialog import Dialog
 
 
 class DialogQueue:
