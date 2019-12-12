@@ -1,5 +1,5 @@
 from interface import implements, Interface
 
 class Effect(Interface):
-    def execute(self, targets):
+    def execute(self, target):
         pass

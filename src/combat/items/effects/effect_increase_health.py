@@ -5,6 +5,7 @@ class EffectIncreaseHealth(implements(Effect)):
     def __init__(self, amount: int):
         self.amount = amount
     
-    def execute(self, targets):
-        for target in targets:
-            target.health = target.health + amount
+    def execute(self, target):
+        char = target        
+        char.health = char.health + amount
+        return char

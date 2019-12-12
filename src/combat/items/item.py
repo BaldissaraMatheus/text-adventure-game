@@ -5,16 +5,18 @@ class Item:
         self.name = name
         self.description = description
         self.quantity = quantity
-        self.item_type = item_type
-        self.target = target
+        self.type = item_type
         self.effect = effect
     
     def increase(self, quantity: int):
         self.quantity = self.quantity + quantity
-        if self.quantity <= 0:
-            #TODO: remove from inventory
-            pass
     
-    def use(self, character: Character): #ideia: (self, user: Character, targets)
-        #TODO
-        return
+    def decrease(self, quantity: int):
+        self.quantity = self.quantity - quantity
+
+    def use(self, target: Character):
+        self.effect.execute(target)
+        self.quantity -= 1
+    
+    def readDescription(self):
+        print(self.description)
