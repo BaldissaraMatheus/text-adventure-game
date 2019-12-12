@@ -1,6 +1,8 @@
 from __future__ import print_function, unicode_literals
-from PyInquirer import prompt, style_from_dict
+
+from dialogs.dialog_option import DialogOption
 from examples import custom_style_1
+from PyInquirer import prompt, style_from_dict
 
 
 class Dialog:
