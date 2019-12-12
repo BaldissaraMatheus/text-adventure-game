@@ -32,13 +32,3 @@ class Dialog:
         for opt in self.possible_options:
             if self.message == opt.text:
                 opt.execute()
-
-
-# dialog_options = {'name': 'foi pra direita'}
-# dialog_options2 = {'name': 'foi pra esquerda'}
-# primeira_fase = Dialog(message='Para onde eu vou?')
-# primeira_fase.add_option()
-# primeira_fase.add_option(dialog_options)
-# primeira_fase.add_option(dialog_options2)
-# resposta = primeira_fase.execute()
-# print(resposta)
